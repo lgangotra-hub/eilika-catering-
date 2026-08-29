@@ -1,22 +1,48 @@
 /* ==========================================================================
-   DÉPANNEUR EILIKA — EDITORIAL AESTHETIC STYLESHEET
-   Authentic Montreal Storefront • High-Contrast Editorial Typography & Spacing
+   DÉPANNEUR EILIKA — PROFESSIONAL OFFICIAL GLOSSY THEME
+   Executive Montreal Storefront • Lustrous Midnight Sapphire & Platinum Glass
    ========================================================================== */
 
 @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Space+Mono:ital,wght@0,400;0,700;1,400&family=Playfair+Display:ital,wght@0,700;0,900;1,400;1,600;1,700&display=swap');
 
 :root {
-  /* Brand Palette - Editorial Montreal Dépanneur */
-  --brick-red: #A32A2A;
-  --brick-red-dark: #881F1F;
-  --brick-red-light: #C03939;
-  --awning-stripe: #8F2222;
-  --warm-cream: #FDFBF7;
-  --warm-cream-dark: #F5EFE6;
-  --warm-cream-light: #FAF8F2;
-  --cream-card: #FFFFFF;
+  /* Official Glossy Palette - Professional Midnight Sapphire & Slate (Zero Red) */
+  --navy-950: #060B17;
+  --navy-900: #0B132B;
+  --navy-850: #0F1D40;
+  --navy-800: #1C2D5A;
+  --navy-700: #2C3E6B;
   
-  /* Editorial Neutrals */
+  --sapphire-600: #1D4ED8;
+  --sapphire-500: #2563EB;
+  --sapphire-400: #3B82F6;
+  --sapphire-300: #60A5FA;
+  --sapphire-light: #EFF6FF;
+
+  --cyan-600: #0891B2;
+  --cyan-500: #06B6D4;
+  --cyan-400: #22D3EE;
+  --cyan-light: #ECFEFF;
+
+  --emerald-700: #047857;
+  --emerald-600: #059669;
+  --emerald-500: #10B981;
+  --emerald-400: #34D399;
+  --emerald-light: #ECFDF5;
+
+  --amber-600: #D97706;
+  --amber-500: #F59E0B;
+  --amber-400: #FBBF24;
+  --amber-light: #FFFBEB;
+
+  --whatsapp-green: #25D366;
+  --whatsapp-dark: #1EBE5D;
+  --whatsapp-hover: #128C7E;
+
+  /* Executive Neutrals */
+  --bg-page: #F8FAFC;
+  --bg-surface: #FFFFFF;
+  --bg-surface-elevated: #F1F5F9;
   --charcoal: #0F172A;
   --charcoal-body: #1E293B;
   --charcoal-muted: #64748B;
@@ -25,39 +51,33 @@
   --border-slate-dark: #CBD5E1;
   --border-hairline: rgba(15, 23, 42, 0.08);
 
-  /* Editorial Accents */
-  --teal-900: #134E4A;
-  --teal-800: #115E59;
-  --teal-700: #0F766E;
-  --teal-500: #14B8A6;
-  --teal-400: #2DD4BF;
-  --teal-light: #CCFBF1;
-  --amber-500: #F59E0B;
-  --amber-600: #D97706;
-  --red-600: #DC2626;
-  --whatsapp-green: #25D366;
-  --whatsapp-dark: #1EBE5D;
-  --whatsapp-hover: #128C7E;
-  
+  /* Glossy Effects */
+  --gloss-shine: linear-gradient(180deg, rgba(255, 255, 255, 0.22) 0%, rgba(255, 255, 255, 0.04) 50%, rgba(0, 0, 0, 0.08) 100%);
+  --gloss-header: linear-gradient(135deg, #070D1E 0%, #0F1D40 50%, #0A142F 100%);
+  --gloss-card-header: linear-gradient(135deg, #0F172A 0%, #1E293B 100%);
+  --gloss-btn-primary: linear-gradient(180deg, #2563EB 0%, #1D4ED8 100%);
+  --gloss-btn-success: linear-gradient(180deg, #10B981 0%, #059669 100%);
+  --gloss-btn-dark: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
+
   /* Neon Status */
-  --neon-green: #00FF41;
-  --neon-green-glow: rgba(0, 255, 65, 0.55);
-  --neon-red: #EF4444;
-  --neon-red-glow: rgba(239, 68, 68, 0.55);
+  --neon-green: #00FF66;
+  --neon-green-glow: rgba(0, 255, 102, 0.6);
+  --neon-blue: #38BDF8;
+  --neon-blue-glow: rgba(56, 189, 248, 0.6);
 
   /* Shadows & Radius */
   --shadow-sm: 0 1px 3px rgba(15, 23, 42, 0.06), 0 1px 2px rgba(15, 23, 42, 0.04);
-  --shadow-md: 0 4px 12px rgba(15, 23, 42, 0.08);
-  --shadow-lg: 0 16px 32px rgba(15, 23, 42, 0.12);
-  --shadow-xl: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 14px rgba(15, 23, 42, 0.08), 0 2px 4px rgba(15, 23, 42, 0.04);
+  --shadow-lg: 0 16px 32px rgba(15, 23, 42, 0.12), 0 4px 8px rgba(15, 23, 42, 0.06);
+  --shadow-gloss: inset 0 1px 1px rgba(255, 255, 255, 0.4), 0 4px 16px rgba(15, 23, 42, 0.15);
   
-  --radius-xs: 3px;
-  --radius-sm: 4px;
-  --radius-md: 8px;
-  --radius-lg: 12px;
+  --radius-xs: 4px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 14px;
   --radius-pill: 9999px;
   
-  /* Fonts */
+  /* Typography */
   --font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
   --font-mono: 'Space Mono', 'Courier New', monospace;
   --font-serif: 'Playfair Display', Georgia, serif;
@@ -73,14 +93,14 @@
 html {
   scroll-behavior: smooth;
   font-size: 16px;
-  background-color: var(--warm-cream);
+  background-color: var(--bg-page);
   color: var(--charcoal-body);
 }
 
 body {
   font-family: var(--font-sans);
   line-height: 1.55;
-  background-color: var(--warm-cream);
+  background-color: var(--bg-page);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -113,7 +133,7 @@ a {
 }
 
 /* ==========================================================================
-   1. EDITORIAL AWNING HEADER & NAVIGATION
+   1. OFFICIAL GLOSSY HEADER & NAVIGATION
    ========================================================================== */
 .header-wrapper {
   position: sticky;
@@ -123,31 +143,16 @@ a {
 }
 
 .awning-header {
-  background: var(--brick-red);
-  background-image: repeating-linear-gradient(
-    90deg,
-    var(--brick-red) 0px,
-    var(--brick-red) 36px,
-    var(--awning-stripe) 36px,
-    var(--awning-stripe) 72px
-  );
+  background: var(--gloss-header);
   color: #FFFFFF;
-  padding: 0.9rem 0 0.8rem;
+  padding: 0.9rem 0 0.85rem;
   position: relative;
-  border-bottom: 4px solid rgba(0, 0, 0, 0.25);
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  border-bottom: 2px solid rgba(56, 189, 248, 0.35);
+  box-shadow: 0 8px 24px rgba(6, 11, 23, 0.45), inset 0 1px 0 rgba(255, 255, 255, 0.15);
 }
 
 .awning-scallop {
-  position: absolute;
-  bottom: -10px;
-  left: 0;
-  width: 100%;
-  height: 10px;
-  background-image: radial-gradient(circle at 10px 0, var(--brick-red) 10px, transparent 11px);
-  background-size: 20px 10px;
-  background-repeat: repeat-x;
-  z-index: 2;
+  display: none; /* Removed retro scalloped awning for official glossy executive aesthetic */
 }
 
 .header-container {
@@ -157,12 +162,12 @@ a {
   gap: 1.5rem;
 }
 
-/* Brand Logo (DE Box Monogram) */
+/* Brand Logo Box */
 .brand-group {
   display: flex;
   align-items: center;
   gap: 1rem;
-  transition: transform 0.15s ease;
+  transition: transform 0.18s ease;
 }
 
 .brand-group:hover {
@@ -170,47 +175,48 @@ a {
 }
 
 .brand-icon-box {
-  width: 48px;
-  height: 48px;
-  background: #FFFFFF;
-  color: var(--brick-red);
+  width: 46px;
+  height: 46px;
+  background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+  color: #38BDF8;
   border-radius: var(--radius-sm);
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1.4rem;
+  font-size: 1.3rem;
   font-weight: 900;
   font-family: var(--font-sans);
-  letter-spacing: -0.05em;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.08), 0 2px 6px rgba(0, 0, 0, 0.2);
-  border: 2px solid var(--brick-red);
+  letter-spacing: -0.04em;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.3), 0 3px 10px rgba(0, 0, 0, 0.35);
+  border: 1.5px solid rgba(56, 189, 248, 0.45);
   flex-shrink: 0;
 }
 
 .brand-text h1 {
-  font-size: 1.5rem;
+  font-size: 1.45rem;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: -0.04em;
-  line-height: 1;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
   color: #FFFFFF;
   font-family: var(--font-sans);
+  text-shadow: 0 2px 4px rgba(0,0,0,0.4);
 }
 
 .brand-text .tagline {
   font-size: 0.65rem;
-  color: rgba(255, 255, 255, 0.75);
+  color: #94A3B8;
   font-weight: 800;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.16em;
   text-transform: uppercase;
-  margin-top: 0.25rem;
+  margin-top: 0.15rem;
 }
 
 /* Desktop Quick Links & Live Neon Status */
 .header-center {
   display: flex;
   align-items: center;
-  gap: 1.75rem;
+  gap: 1.5rem;
 }
 
 .neon-status-badge {
@@ -224,31 +230,31 @@ a {
   font-weight: 700;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  background: rgba(0, 0, 0, 0.35);
-  backdrop-filter: blur(6px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+  background: rgba(15, 23, 42, 0.65);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(56, 189, 248, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.1), 0 2px 8px rgba(0,0,0,0.3);
   white-space: nowrap;
 }
 
 .neon-status-badge.open {
   color: var(--neon-green);
-  border-color: rgba(0, 255, 65, 0.4);
+  border-color: rgba(0, 255, 102, 0.4);
 }
 
 .neon-status-badge.open .neon-dot {
   background: var(--neon-green);
-  box-shadow: 0 0 8px var(--neon-green);
+  box-shadow: 0 0 8px var(--neon-green-glow);
 }
 
 .neon-status-badge.closed {
-  color: #FCA5A5;
-  border-color: rgba(239, 68, 68, 0.4);
+  color: var(--amber-400);
+  border-color: rgba(245, 158, 11, 0.4);
 }
 
 .neon-status-badge.closed .neon-dot {
-  background: var(--neon-red);
-  box-shadow: 0 0 8px var(--neon-red);
+  background: var(--amber-400);
+  box-shadow: 0 0 8px rgba(245, 158, 11, 0.6);
 }
 
 .neon-dot {
@@ -260,7 +266,7 @@ a {
 
 @keyframes pulse-dot {
   0%, 100% { opacity: 1; transform: scale(1); }
-  50% { opacity: 0.4; transform: scale(0.85); }
+  50% { opacity: 0.45; transform: scale(0.85); }
 }
 
 .desktop-nav-links {
@@ -274,7 +280,7 @@ a {
   font-size: 0.75rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   padding: 0.35rem 0.2rem;
   border-bottom: 2px solid transparent;
   transition: all 0.2s ease;
@@ -282,12 +288,62 @@ a {
 
 .nav-link:hover {
   color: #FFFFFF;
-  border-bottom-color: rgba(255, 255, 255, 0.5);
+  border-bottom-color: var(--cyan-400);
 }
 
 .nav-link.active {
   color: #FFFFFF;
-  border-bottom-color: #FFFFFF;
+  border-bottom-color: var(--cyan-400);
+}
+
+/* BILINGUAL LANGUAGE SWITCHER (EN / FR TOGGLE) */
+.lang-switch-wrap {
+  display: inline-flex;
+  align-items: center;
+}
+
+.lang-toggle-btn {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.18) 0%, rgba(255, 255, 255, 0.05) 100%);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: var(--radius-pill);
+  padding: 0.3rem 0.65rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  cursor: pointer;
+  box-shadow: inset 0 1px 1px rgba(255, 255, 255, 0.2), 0 2px 6px rgba(0, 0, 0, 0.25);
+  transition: all 0.2s ease;
+  user-select: none;
+}
+
+.lang-toggle-btn:hover {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.25) 0%, rgba(255, 255, 255, 0.1) 100%);
+  border-color: var(--cyan-400);
+  transform: translateY(-1px);
+}
+
+.lang-opt {
+  font-family: var(--font-sans);
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+  color: rgba(255, 255, 255, 0.6);
+  padding: 0.1rem 0.3rem;
+  border-radius: var(--radius-xs);
+  transition: all 0.15s ease;
+}
+
+.lang-opt.active {
+  background: #0284C7;
+  color: #FFFFFF;
+  font-weight: 900;
+  box-shadow: 0 1px 4px rgba(2, 132, 199, 0.5);
+}
+
+.lang-sep {
+  color: rgba(255, 255, 255, 0.3);
+  font-size: 0.65rem;
+  font-weight: 700;
 }
 
 /* Header Actions */
@@ -298,35 +354,35 @@ a {
 }
 
 .header-cart-btn {
-  background: #FFFFFF;
-  color: var(--brick-red);
-  border: none;
+  background: linear-gradient(180deg, #FFFFFF 0%, #E2E8F0 100%);
+  color: var(--navy-900);
+  border: 1px solid rgba(255, 255, 255, 0.8);
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  padding: 0.6rem 1.15rem;
+  gap: 0.65rem;
+  padding: 0.55rem 1.15rem;
   border-radius: var(--radius-sm);
   font-weight: 900;
-  font-size: 0.85rem;
+  font-size: 0.82rem;
   text-transform: uppercase;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background-color 0.15s;
+  box-shadow: inset 0 1px 0 #FFFFFF, 0 4px 12px rgba(0, 0, 0, 0.25);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
   position: relative;
 }
 
 .header-cart-btn:hover {
-  transform: scale(1.04);
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+  transform: scale(1.03);
+  box-shadow: inset 0 1px 0 #FFFFFF, 0 6px 16px rgba(0, 0, 0, 0.3);
 }
 
 .header-cart-btn:active {
-  transform: scale(0.96);
+  transform: scale(0.97);
 }
 
 .cart-count-badge {
-  background: var(--teal-500);
+  background: #0284C7;
   color: #FFFFFF;
   min-width: 20px;
   height: 20px;
@@ -338,23 +394,13 @@ a {
   font-family: var(--font-mono);
   font-weight: 800;
   padding: 0 4px;
-  border: 2px solid var(--brick-red);
-}
-
-.cart-bounce {
-  animation: badge-pop 0.35s ease;
-}
-
-@keyframes badge-pop {
-  0% { transform: scale(1); }
-  50% { transform: scale(1.35); }
-  100% { transform: scale(1); }
+  border: 1.5px solid #FFFFFF;
 }
 
 .hamburger-btn {
   display: none;
-  background: transparent;
-  border: 1px solid rgba(255, 255, 255, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.25);
   color: #FFFFFF;
   padding: 0.4rem;
   border-radius: var(--radius-sm);
@@ -362,12 +408,12 @@ a {
 }
 
 /* ==========================================================================
-   2. EDITORIAL ANNOUNCEMENT MARQUEE (TEAL TICKER)
+   2. GLOSSY ANNOUNCEMENT MARQUEE (SAPPHIRE SLATE TICKER)
    ========================================================================== */
 .announcement-marquee-bar {
-  background: var(--teal-900);
-  color: #FFFFFF;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.18);
+  background: linear-gradient(90deg, #091124 0%, #132247 50%, #091124 100%);
+  color: #E2E8F0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   height: 32px;
   display: flex;
   align-items: center;
@@ -395,12 +441,12 @@ a {
   font-family: var(--font-sans);
   font-size: 0.68rem;
   font-weight: 800;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.25em;
   text-transform: uppercase;
 }
 
 .marquee-divider {
-  color: var(--teal-400);
+  color: var(--amber-400);
   font-weight: 900;
 }
 
@@ -413,9 +459,9 @@ a {
    3. STORE LOCATION & QUICK BAR
    ========================================================================== */
 .store-quick-bar {
-  background: var(--warm-cream-dark);
+  background: #F1F5F9;
   border-bottom: 1px solid var(--border-slate);
-  padding: 0.6rem 0;
+  padding: 0.55rem 0;
 }
 
 .quick-bar-content {
@@ -437,7 +483,7 @@ a {
 }
 
 .store-loc-info a {
-  color: var(--brick-red);
+  color: var(--sapphire-600);
   font-weight: 700;
   text-decoration: underline;
   text-underline-offset: 2px;
@@ -460,16 +506,17 @@ a {
   font-size: 0.75rem;
   font-weight: 700;
   color: var(--charcoal);
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
 }
 
 .contact-pill.whatsapp {
-  color: #0F5132;
-  background: #E8F8F0;
-  border-color: #A3E635;
+  color: #065F46;
+  background: #ECFDF5;
+  border-color: #A7F3D0;
 }
 
 /* ==========================================================================
-   4. SECTION HEADINGS & ACCENTS (EDITORIAL)
+   4. SECTION HEADINGS & ACCENTS
    ========================================================================== */
 .section-header {
   margin-bottom: 1.5rem;
@@ -505,7 +552,7 @@ a {
 }
 
 /* ==========================================================================
-   SECTION A: TOP DEALS & FEATURED (EDITORIAL 2-COL / 4-GRID)
+   SECTION A: TOP DEALS & FEATURED (GLOSSY 4-GRID)
    ========================================================================== */
 .deals-section {
   padding: 2.25rem 0 1.5rem;
@@ -519,9 +566,9 @@ a {
 
 .deal-card {
   background: #FFFFFF;
-  border-radius: var(--radius-sm);
-  border: 2px solid var(--border-slate);
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--border-slate-dark);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -531,8 +578,8 @@ a {
 
 .deal-card:hover {
   transform: translateY(-3px);
-  box-shadow: var(--shadow-md);
-  border-color: var(--border-slate-dark);
+  box-shadow: var(--shadow-lg);
+  border-color: #94A3B8;
 }
 
 .card-img-wrap {
@@ -559,7 +606,7 @@ a {
   position: absolute;
   top: 8px;
   left: 8px;
-  background: var(--amber-500);
+  background: linear-gradient(135deg, #F59E0B 0%, #D97706 100%);
   color: #000000;
   font-size: 0.65rem;
   font-weight: 900;
@@ -567,21 +614,23 @@ a {
   padding: 0.2rem 0.55rem;
   border-radius: var(--radius-xs);
   letter-spacing: 0.05em;
-  box-shadow: 0 1px 3px rgba(0,0,0,0.15);
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 .deal-discount-tag {
   position: absolute;
   top: 8px;
   right: 8px;
-  background: var(--red-600);
-  color: #FFFFFF;
+  background: linear-gradient(135deg, #1E293B 0%, #0F172A 100%);
+  color: #38BDF8;
+  border: 1px solid rgba(56, 189, 248, 0.4);
   font-family: var(--font-mono);
   font-size: 0.7rem;
   font-weight: 900;
   padding: 0.2rem 0.55rem;
   border-radius: var(--radius-xs);
   text-transform: uppercase;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.25);
 }
 
 .card-body {
@@ -595,7 +644,7 @@ a {
   font-size: 0.68rem;
   font-weight: 800;
   text-transform: uppercase;
-  color: var(--teal-700);
+  color: var(--sapphire-600);
   letter-spacing: 0.12em;
   margin-bottom: 0.35rem;
 }
@@ -642,7 +691,7 @@ a {
   font-family: var(--font-mono);
   font-size: 1.25rem;
   font-weight: 800;
-  color: var(--brick-red);
+  color: var(--navy-900);
   line-height: 1;
 }
 
@@ -655,26 +704,28 @@ a {
 }
 
 .btn-add-order {
-  background: var(--teal-700);
+  background: var(--gloss-btn-primary);
   color: #FFFFFF;
-  border: none;
-  padding: 0.5rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  padding: 0.5rem 0.9rem;
   border-radius: var(--radius-xs);
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.06em;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.25), 0 2px 6px rgba(37, 99, 235, 0.3);
   transition: all 0.15s ease;
   white-space: nowrap;
 }
 
 .btn-add-order:hover {
-  background: var(--teal-800);
+  background: linear-gradient(180deg, #3B82F6 0%, #2563EB 100%);
   transform: translateY(-1px);
+  box-shadow: 0 4px 10px rgba(37, 99, 235, 0.4);
 }
 
 .btn-add-order:active {
@@ -682,11 +733,11 @@ a {
 }
 
 /* ==========================================================================
-   SECTION B: IMPULSE BUY MINI CAROUSEL (EDITORIAL RETRO)
+   SECTION B: IMPULSE BUY MINI CAROUSEL (GLOSSY)
    ========================================================================== */
 .impulse-section {
   padding: 2rem 0;
-  background: var(--warm-cream-dark);
+  background: #F1F5F9;
   border-top: 1px solid var(--border-slate);
   border-bottom: 1px solid var(--border-slate);
 }
@@ -697,8 +748,8 @@ a {
 }
 
 .carousel-arrow-btn {
-  width: 28px;
-  height: 28px;
+  width: 30px;
+  height: 30px;
   border-radius: var(--radius-xs);
   background: #FFFFFF;
   border: 1px solid var(--border-slate-dark);
@@ -709,13 +760,14 @@ a {
   cursor: pointer;
   font-size: 0.9rem;
   font-weight: 800;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.06);
   transition: all 0.15s ease;
 }
 
 .carousel-arrow-btn:hover {
-  background: var(--charcoal);
+  background: var(--navy-900);
   color: #FFFFFF;
-  border-color: var(--charcoal);
+  border-color: var(--navy-900);
 }
 
 .impulse-track-container {
@@ -745,7 +797,7 @@ a {
 }
 
 .mini-card {
-  width: 155px;
+  width: 160px;
   background: #FFFFFF;
   border-radius: var(--radius-sm);
   border: 1px solid var(--border-slate);
@@ -808,11 +860,11 @@ a {
   font-family: var(--font-mono);
   font-size: 0.95rem;
   font-weight: 800;
-  color: var(--brick-red);
+  color: var(--navy-900);
 }
 
 .btn-quick-add {
-  background: var(--charcoal);
+  background: var(--navy-900);
   color: #FFFFFF;
   border: none;
   width: 26px;
@@ -828,11 +880,11 @@ a {
 }
 
 .btn-quick-add:hover {
-  background: var(--teal-700);
+  background: var(--sapphire-600);
 }
 
 /* ==========================================================================
-   SECTION C: CATALOG GRID & EDITORIAL CHIPS
+   SECTION C: CATALOG GRID & FILTER CHIPS
    ========================================================================== */
 .catalog-section {
   padding: 2.5rem 0 3.5rem;
@@ -852,31 +904,34 @@ a {
 }
 
 .filter-chip {
-  background: #E2E8F0;
-  border: none;
-  padding: 0.35rem 1rem;
+  background: #FFFFFF;
+  border: 1px solid var(--border-slate-dark);
+  padding: 0.4rem 1.1rem;
   border-radius: var(--radius-pill);
-  font-size: 0.68rem;
+  font-size: 0.7rem;
   font-weight: 800;
   text-transform: uppercase;
-  letter-spacing: 0.15em;
+  letter-spacing: 0.12em;
   color: var(--charcoal-muted);
   cursor: pointer;
   display: inline-flex;
   align-items: center;
   gap: 0.35rem;
+  box-shadow: 0 1px 2px rgba(0,0,0,0.04);
   transition: all 0.15s ease;
 }
 
 .filter-chip:hover {
-  background: #CBD5E1;
+  background: #F1F5F9;
   color: var(--charcoal);
+  border-color: #94A3B8;
 }
 
 .filter-chip.active {
-  background: #000000;
+  background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
   color: #FFFFFF;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border-color: #0F172A;
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 3px 8px rgba(15, 23, 42, 0.25);
 }
 
 .search-and-sort-wrap {
@@ -895,18 +950,19 @@ a {
 
 .search-input {
   width: 100%;
-  padding: 0.55rem 1rem 0.55rem 2.25rem;
+  padding: 0.6rem 1rem 0.6rem 2.25rem;
   border-radius: var(--radius-sm);
   border: 1.5px solid var(--border-slate-dark);
   background: #FFFFFF;
   font-size: 0.85rem;
   outline: none;
+  box-shadow: inset 0 1px 2px rgba(0,0,0,0.03);
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
 .search-input:focus {
-  border-color: var(--charcoal);
-  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.1);
+  border-color: var(--sapphire-600);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
 }
 
 .search-icon-pos {
@@ -926,7 +982,7 @@ a {
   letter-spacing: 0.1em;
 }
 
-/* Catalog Grid (Editorial Cards) */
+/* Catalog Grid */
 .products-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -935,7 +991,7 @@ a {
 
 .product-card {
   background: #FFFFFF;
-  border-radius: var(--radius-sm);
+  border-radius: var(--radius-md);
   border: 1px solid var(--border-slate);
   box-shadow: var(--shadow-sm);
   overflow: hidden;
@@ -974,7 +1030,7 @@ a {
   position: absolute;
   top: 8px;
   left: 8px;
-  background: #000000;
+  background: #0F172A;
   color: #FFFFFF;
   font-size: 0.62rem;
   font-weight: 800;
@@ -1041,17 +1097,18 @@ a {
 }
 
 .drawer-header {
-  background: var(--brick-red);
+  background: var(--gloss-card-header);
   color: #FFFFFF;
   padding: 1.1rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
-  border-bottom: 4px solid rgba(0, 0, 0, 0.2);
+  border-bottom: 2px solid rgba(56, 189, 248, 0.3);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.15);
 }
 
 .drawer-header h2 {
-  font-size: 1.2rem;
+  font-size: 1.15rem;
   font-weight: 900;
   text-transform: uppercase;
   letter-spacing: -0.02em;
@@ -1061,9 +1118,9 @@ a {
 }
 
 .drawer-close-btn {
-  background: rgba(255, 255, 255, 0.2);
+  background: rgba(255, 255, 255, 0.15);
   color: #FFFFFF;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.2);
   width: 32px;
   height: 32px;
   border-radius: var(--radius-sm);
@@ -1076,7 +1133,7 @@ a {
 }
 
 .drawer-close-btn:hover {
-  background: rgba(255, 255, 255, 0.35);
+  background: rgba(255, 255, 255, 0.3);
 }
 
 .drawer-body {
@@ -1162,7 +1219,7 @@ a {
 }
 
 .qty-btn:hover {
-  background: var(--charcoal);
+  background: var(--navy-900);
   color: #FFFFFF;
 }
 
@@ -1178,7 +1235,7 @@ a {
   font-family: var(--font-mono);
   font-size: 0.95rem;
   font-weight: 800;
-  color: var(--brick-red);
+  color: var(--navy-900);
   min-width: 55px;
   text-align: right;
 }
@@ -1193,7 +1250,7 @@ a {
 }
 
 .cart-item-remove:hover {
-  color: var(--red-600);
+  color: #475569;
 }
 
 .empty-cart-state {
@@ -1209,7 +1266,7 @@ a {
 
 /* Order Form in Drawer */
 .checkout-form-box {
-  background: var(--warm-cream-dark);
+  background: #F8FAFC;
   border: 1px solid var(--border-slate-dark);
   border-radius: var(--radius-sm);
   padding: 1rem;
@@ -1241,7 +1298,7 @@ a {
 
 .form-control {
   width: 100%;
-  padding: 0.5rem 0.75rem;
+  padding: 0.55rem 0.75rem;
   border: 1px solid var(--border-slate-dark);
   border-radius: var(--radius-xs);
   background: #FFFFFF;
@@ -1250,8 +1307,8 @@ a {
 }
 
 .form-control:focus {
-  border-color: var(--charcoal);
-  box-shadow: 0 0 0 2px rgba(15, 23, 42, 0.1);
+  border-color: var(--sapphire-600);
+  box-shadow: 0 0 0 2px rgba(37, 99, 235, 0.15);
 }
 
 .delivery-options-grid {
@@ -1274,9 +1331,9 @@ a {
 }
 
 .delivery-radio-label:has(input:checked) {
-  border-color: var(--brick-red);
-  background: #FEF2F2;
-  color: var(--brick-red);
+  border-color: var(--sapphire-600);
+  background: var(--sapphire-light);
+  color: var(--sapphire-600);
 }
 
 /* Drawer Footer & Checkout Button */
@@ -1311,13 +1368,13 @@ a {
 .drawer-total-amount {
   font-family: var(--font-mono);
   font-size: 1.35rem;
-  color: var(--brick-red);
+  color: var(--navy-900);
 }
 
 .btn-whatsapp-checkout {
-  background: var(--whatsapp-green);
+  background: linear-gradient(180deg, #25D366 0%, #1EBE5D 100%);
   color: #FFFFFF;
-  border: none;
+  border: 1px solid rgba(255, 255, 255, 0.3);
   width: 100%;
   padding: 0.85rem 1rem;
   border-radius: var(--radius-sm);
@@ -1330,14 +1387,14 @@ a {
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
-  box-shadow: 0 4px 12px rgba(37, 211, 102, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.3), 0 4px 14px rgba(37, 211, 102, 0.35);
   transition: all 0.15s ease;
 }
 
 .btn-whatsapp-checkout:hover {
-  background: var(--whatsapp-dark);
+  background: linear-gradient(180deg, #2EE070 0%, #25D366 100%);
   transform: translateY(-2px);
-  box-shadow: 0 6px 16px rgba(37, 211, 102, 0.45);
+  box-shadow: 0 6px 18px rgba(37, 211, 102, 0.45);
 }
 
 .btn-whatsapp-checkout:active {
@@ -1359,9 +1416,9 @@ a {
   bottom: 24px;
   right: 24px;
   z-index: 45;
-  background: var(--brick-red);
+  background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
   color: #FFFFFF;
-  border: none;
+  border: 1px solid rgba(56, 189, 248, 0.4);
   border-radius: var(--radius-sm);
   padding: 0.8rem 1.25rem;
   display: flex;
@@ -1370,14 +1427,14 @@ a {
   font-weight: 900;
   font-size: 0.85rem;
   text-transform: uppercase;
-  box-shadow: 0 8px 24px rgba(163, 42, 42, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.2), 0 8px 24px rgba(15, 23, 42, 0.4);
   cursor: pointer;
-  transition: transform 0.2s ease, background-color 0.2s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .floating-cart-bubble:hover {
   transform: scale(1.05);
-  background: var(--brick-red-dark);
+  border-color: var(--cyan-400);
 }
 
 /* Mobile Slide-Out Drawer Navigation */
@@ -1435,12 +1492,12 @@ a {
 }
 
 /* ==========================================================================
-   6. EDITORIAL STORE FOOTER
+   6. OFFICIAL STORE FOOTER
    ========================================================================== */
 .store-footer {
-  background: #0F172A;
+  background: #0B132B;
   color: #E2E8F0;
-  border-top: 4px solid var(--brick-red);
+  border-top: 3px solid #1E293B;
   padding: 3.5rem 0 1.5rem;
   margin-top: auto;
 }
@@ -1515,12 +1572,12 @@ a {
 }
 
 .admin-access-link:hover {
-  background: var(--brick-red);
+  background: var(--sapphire-600);
   color: #FFFFFF;
 }
 
 /* ==========================================================================
-   7. ADMIN DASHBOARD STYLES (admin.html) — EDITORIAL CONSOLE
+   7. ADMIN DASHBOARD STYLES (admin.html) — GLOSSY CONSOLE
    ========================================================================== */
 .admin-body {
   background: #F1F5F9;
@@ -1532,11 +1589,11 @@ a {
   position: sticky;
   top: 0;
   z-index: 90;
-  background: #0F172A;
+  background: linear-gradient(135deg, #0A1128 0%, #101F42 50%, #0B1736 100%);
   color: #FFFFFF;
-  border-bottom: 2px solid var(--brick-red);
+  border-bottom: 2px solid rgba(56, 189, 248, 0.35);
   padding: 0.75rem 1.5rem;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.15);
 }
 
 .publish-bar-container {
@@ -1563,8 +1620,9 @@ a {
 }
 
 .admin-badge-pill {
-  background: var(--brick-red);
-  color: #FFFFFF;
+  background: linear-gradient(180deg, #1E293B 0%, #0F172A 100%);
+  border: 1px solid rgba(56, 189, 248, 0.4);
+  color: #38BDF8;
   font-size: 0.65rem;
   font-weight: 800;
   text-transform: uppercase;
@@ -1621,26 +1679,27 @@ a {
 }
 
 .btn-publish-live {
-  background: var(--teal-500);
-  color: #000000;
-  border: none;
-  padding: 0.5rem 1.15rem;
+  background: var(--gloss-btn-success);
+  color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  padding: 0.55rem 1.15rem;
   border-radius: var(--radius-xs);
   font-size: 0.78rem;
   font-weight: 900;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.04em;
   cursor: pointer;
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  box-shadow: 0 2px 8px rgba(20, 184, 166, 0.35);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.35), 0 3px 10px rgba(16, 185, 129, 0.35);
   transition: all 0.15s ease;
 }
 
 .btn-publish-live:hover {
-  background: var(--teal-400);
+  background: linear-gradient(180deg, #34D399 0%, #10B981 100%);
   transform: translateY(-1px);
+  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.45);
 }
 
 .btn-publish-live:active {
@@ -1650,15 +1709,16 @@ a {
 /* Green Floating Notification Banner */
 .floating-save-banner {
   position: fixed;
-  top: 70px;
+  top: 75px;
   left: 50%;
   transform: translateX(-50%) translateY(-100px);
   z-index: 999;
-  background: #059669;
+  background: linear-gradient(180deg, #10B981 0%, #059669 100%);
   color: #FFFFFF;
+  border: 1px solid rgba(255, 255, 255, 0.4);
   padding: 0.85rem 1.75rem;
   border-radius: var(--radius-pill);
-  box-shadow: 0 10px 25px rgba(5, 150, 105, 0.4);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.4), 0 12px 28px rgba(5, 150, 105, 0.4);
   font-size: 0.9rem;
   font-weight: 900;
   display: flex;
@@ -1680,6 +1740,7 @@ a {
   background: #FFFFFF;
   border-bottom: 1px solid var(--border-slate);
   padding: 0 1.5rem;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.03);
 }
 
 .admin-tabs-container {
@@ -1709,12 +1770,12 @@ a {
 }
 
 .admin-tab-btn:hover {
-  color: #000000;
+  color: var(--navy-900);
 }
 
 .admin-tab-btn.active {
-  color: #000000;
-  border-bottom-color: #000000;
+  color: var(--sapphire-600);
+  border-bottom-color: var(--sapphire-600);
 }
 
 /* Admin Main Content & Cards */
@@ -1816,6 +1877,7 @@ a {
   cursor: pointer;
   border: 1px solid var(--border-slate-dark);
   background: #FFFFFF;
+  transition: all 0.15s ease;
 }
 
 .btn-table-action.edit:hover {
@@ -1825,9 +1887,9 @@ a {
 }
 
 .btn-table-action.delete:hover {
-  background: #FEF2F2;
-  border-color: #EF4444;
-  color: #DC2626;
+  background: #F1F5F9;
+  border-color: #64748B;
+  color: #0F172A;
 }
 
 /* GitHub Connection Box */
@@ -1867,7 +1929,7 @@ a {
 .modal-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(15, 23, 42, 0.65);
+  background: rgba(15, 23, 42, 0.7);
   backdrop-filter: blur(4px);
   z-index: 200;
   display: none;
@@ -1884,22 +1946,23 @@ a {
   background: #FFFFFF;
   width: 100%;
   max-width: 550px;
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-lg);
+  border-radius: var(--radius-md);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
   overflow: hidden;
   max-height: 90vh;
   display: flex;
   flex-direction: column;
-  border: 2px solid var(--border-slate-dark);
+  border: 1px solid var(--border-slate-dark);
 }
 
 .modal-header {
-  background: var(--brick-red);
+  background: var(--gloss-card-header);
   color: #FFFFFF;
   padding: 1rem 1.25rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  border-bottom: 2px solid rgba(56, 189, 248, 0.3);
 }
 
 .modal-body {

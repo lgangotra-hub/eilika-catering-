@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="fr-CA">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Dépanneur Eilika — Épicerie de quartier & WhatsApp Checkout</title>
+    <meta name="description" content="Dépanneur Eilika au Plateau-Mont-Royal. Boissons fraîches, collations, essentiels du quotidien et commande directe par WhatsApp." />
+    <meta property="og:title" content="Dépanneur Eilika — Épicerie de quartier & WhatsApp Checkout" />
+    <meta property="og:description" content="Dépanneur de quartier à Montréal avec commande instantanée WhatsApp et ramassage express." />
+    <meta property="og:type" content="website" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <!-- 1. FIXED AWNING HEADER & NAVIGATION -->
+    <header class="header-wrapper" id="mainHeaderWrapper">
+      <div class="awning-header" id="awningHeader">
+        <div class="container header-container">
+          <!-- Left: Brand Logo & Title -->
+          <a href="./index.html" class="brand-group" id="brandLogoLink">
+            <div class="brand-icon-box" id="brandIconBox">DE</div>
+            <div class="brand-text">
+              <h1 class="store-name-text" id="storeBrandHeading">Dépanneur Eilika</h1>
+              <div class="tagline store-tagline-text" id="storeTaglineSub">Montreal Authentic Storefront</div>
+            </div>
+          </a>
+
+          <!-- Center (Desktop): Quick Links & Live Neon Status -->
+          <div class="header-center" id="headerCenterDesktop">
+            <div class="neon-status-badge open" id="liveStatusBadge">
+              <span class="neon-dot"></span>
+              <span>OUVERT / OPEN • 08h-23h</span>
+            </div>
+            <nav class="desktop-nav-links" id="desktopNavLinks">
+              <a href="#featuredSection" class="nav-link" id="navLinkDeals">⚡ Aubaines</a>
+              <a href="#impulseSection" class="nav-link" id="navLinkImpulse">🔥 Essentiels Express</a>
+              <a href="#catalogSection" class="nav-link" id="navLinkCatalog">📦 Rayons</a>
+              <a href="./admin.html" class="nav-link" id="navLinkAdmin" title="Accès Gestionnaire">⚙️ Admin</a>
+            </nav>
+          </div>
+
+          <!-- Right: Cart Icon Button & Mobile Hamburger -->
+          <div class="header-actions" id="headerActionsWrap">
+            <button class="header-cart-btn" id="headerCartBtn" aria-label="Ouvrir le panier">
+              <span style="font-size: 1.1rem;">🛒</span>
+              <span>Panier</span>
+              <span class="cart-count-badge" id="headerCartCount">0</span>
+            </button>
+
+            <button class="hamburger-btn" id="hamburgerBtn" aria-label="Menu principal">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="4" x2="20" y1="12" y2="12"></line>
+                <line x1="4" x2="20" y1="6" y2="6"></line>
+                <line x1="4" x2="20" y1="18" y2="18"></line>
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div class="awning-scallop" aria-hidden="true"></div>
+      </div>
+
+      <!-- 2. SCROLLING ANNOUNCEMENT MARQUEE -->
+      <div class="announcement-marquee-bar" id="announcementMarqueeBar">
+        <div class="marquee-content" id="marqueeContent">
+          <!-- Injected dynamically via storefront.js -->
+          <div class="marquee-item">
+            <span>✨ BIENVENUE AU DÉPANNEUR EILIKA — LIVRAISON LOCALE & RAMASSAGE VIA WHATSAPP!</span>
+            <span class="marquee-divider">✦</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- STORE LOCATION & QUICK CONTACT BAR -->
+    <section class="store-quick-bar" id="storeQuickBar">
+      <div class="container quick-bar-content">
+        <div class="store-loc-info" id="storeLocInfo">
+          <span>📍</span>
+          <span id="storeAddressText">4218 Rue Saint-Denis, Plateau-Mont-Royal, QC</span>
+          <a href="https://maps.google.com/?q=4218+Rue+Saint-Denis+Montreal" target="_blank" rel="noopener noreferrer" id="storeMapLink">(Google Maps)</a>
+        </div>
+        <div class="store-quick-contact" id="storeQuickContact">
+          <a href="tel:+15145550199" class="contact-pill" id="storePhoneText">📞 +1 (514) 555-0199</a>
+          <a href="https://wa.me/15145550199" target="_blank" class="contact-pill whatsapp" id="storeWhatsAppText">💬 WhatsApp Express</a>
+          <span class="contact-pill" id="storeHoursText">🕒 08h00 - 23h00</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- MAIN STORE CONTENT -->
+    <main class="store-main" id="storeMain">
+      <!-- SECTION A: TOP DEALS & FEATURED PRODUCTS -->
+      <section class="deals-section" id="featuredSection">
+        <div class="container">
+          <div class="section-header" id="dealsSectionHeader">
+            <div class="section-title-wrap">
+              <span style="font-size: 1.6rem;">⚡</span>
+              <div>
+                <h2 class="section-title" id="dealsSectionTitle">Aubaines de la Semaine / Top Deals</h2>
+                <p class="section-subtitle" id="dealsSectionSubtitle">Sélection de boissons fraîches, collations et rabais spéciaux</p>
+              </div>
+            </div>
+          </div>
+          <div class="deals-grid" id="featuredGrid">
+            <!-- Populated dynamically via storefront.js -->
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION B: IMPULSE BUY MINI CAROUSEL -->
+      <section class="impulse-section" id="impulseSection">
+        <div class="container">
+          <div class="section-header" id="impulseSectionHeader">
+            <div class="section-title-wrap">
+              <span style="font-size: 1.5rem;">🔥</span>
+              <div>
+                <h2 class="section-title" id="impulseSectionTitle">Achats Express & Essentiels de Poche</h2>
+                <p class="section-subtitle" id="impulseSectionSubtitle">Briquets, gommes, mouchoirs et petits délices à portée de main</p>
+              </div>
+            </div>
+            <div class="carousel-nav-btns" id="carouselNavBtns">
+              <button class="carousel-arrow-btn" id="carouselPrevBtn" aria-label="Précédent">‹</button>
+              <button class="carousel-arrow-btn" id="carouselNextBtn" aria-label="Suivant">›</button>
+            </div>
+          </div>
+
+          <div class="impulse-track-container" id="impulseTrackContainer">
+            <div class="impulse-track" id="impulseTrack">
+              <!-- Populated dynamically via storefront.js -->
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION C: STANDARD CATEGORY GRID & SEARCH -->
+      <section class="catalog-section" id="catalogSection">
+        <div class="container">
+          <div class="section-header" id="catalogSectionHeader">
+            <div class="section-title-wrap">
+              <span style="font-size: 1.5rem;">🛍️</span>
+              <div>
+                <h2 class="section-title" id="catalogSectionTitle">Tous les Rayons du Dépanneur</h2>
+                <p class="section-subtitle" id="catalogSectionSubtitle">Trouvez rapidement ce dont vous avez besoin</p>
+              </div>
+            </div>
+            <div class="results-count-text" id="resultsCountText">Chargement des articles...</div>
+          </div>
+
+          <!-- Catalog Toolbar (Filter Chips & Live Search) -->
+          <div class="catalog-toolbar" id="catalogToolbar">
+            <div class="category-filter-chips" id="categoryChipsContainer">
+              <!-- Dynamic Category Chips -->
+            </div>
+            <div class="search-and-sort-wrap">
+              <div class="search-box-wrap">
+                <span class="search-icon-pos">🔍</span>
+                <input 
+                  type="text" 
+                  class="search-input" 
+                  id="searchInput" 
+                  placeholder="Rechercher chips, Red Bull, briquets, Advil..." 
+                  aria-label="Rechercher dans les produits"
+                />
+              </div>
+            </div>
+          </div>
+
+          <!-- Product Grid -->
+          <div class="products-grid" id="productsGrid">
+            <!-- Populated dynamically via storefront.js -->
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <!-- 4. WHATSAPP CHECKOUT SLIDE-OVER DRAWER -->
+    <div class="drawer-backdrop" id="drawerBackdrop"></div>
+    
+    <aside class="cart-drawer" id="cartDrawer" aria-label="Panier et Commande WhatsApp">
+      <div class="drawer-header" id="drawerHeader">
+        <h2>
+          <span>🛒</span>
+          <span>Votre Commande WhatsApp</span>
+        </h2>
+        <button class="drawer-close-btn" id="closeDrawerBtn" aria-label="Fermer le panier">✕</button>
+      </div>
+
+      <div class="drawer-body" id="drawerBody">
+        <!-- List of Cart Items -->
+        <div class="cart-items-list" id="cartItemsList">
+          <!-- Populated via storefront.js -->
+        </div>
+
+        <!-- Customer Checkout Info -->
+        <div class="checkout-form-box" id="checkoutFormBox">
+          <div class="form-group-title">
+            <span>📝</span>
+            <span>Informations de Commande</span>
+          </div>
+
+          <div>
+            <label class="form-field-label" for="custName">Votre Nom / Name *</label>
+            <input type="text" class="form-control" id="custName" placeholder="Ex: Jean Tremblay" required />
+          </div>
+
+          <div>
+            <label class="form-field-label" for="custPhone">Numéro de téléphone / Phone</label>
+            <input type="tel" class="form-control" id="custPhone" placeholder="Ex: 514-555-0123" />
+          </div>
+
+          <div>
+            <label class="form-field-label">Option de réception / Mode</label>
+            <div class="delivery-options-grid">
+              <label class="delivery-radio-label">
+                <input type="radio" name="deliveryType" value="🚲 Livraison Locale (Plateau / Mile-End)" checked />
+                <span>🚲 Livraison</span>
+              </label>
+              <label class="delivery-radio-label">
+                <input type="radio" name="deliveryType" value="🏪 Ramassage en Magasin (Pickup)" />
+                <span>🏪 Ramassage</span>
+              </label>
+            </div>
+          </div>
+
+          <div>
+            <label class="form-field-label" for="custNote">Adresse de livraison ou note au commis</label>
+            <textarea class="form-control" id="custNote" rows="2" placeholder="Ex: 4300 Av du Parc, Apt 3, Intercom 12 (ou heure de passage)"></textarea>
+          </div>
+        </div>
+      </div>
+
+      <div class="drawer-footer" id="drawerFooter">
+        <div class="drawer-subtotal-row">
+          <span>Sous-total:</span>
+          <span id="cartSubtotal" style="font-family: var(--font-mono); font-weight:700;">$0.00 CAD</span>
+        </div>
+        <div class="drawer-total-row">
+          <span>Total Estimé:</span>
+          <span class="drawer-total-amount" id="cartTotal">$0.00 CAD</span>
+        </div>
+        
+        <button class="btn-whatsapp-checkout" id="btnWhatsAppCheckout">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor">
+            <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91C2.13 13.66 2.59 15.36 3.45 16.86L2.05 22L7.3 20.62C8.75 21.41 10.38 21.83 12.04 21.83C17.5 21.83 21.95 17.38 21.95 11.92C21.95 6.46 17.5 2 12.04 2M12.05 20.15C10.56 20.15 9.11 19.76 7.85 19L7.55 18.83L4.43 19.65L5.26 16.61L5.06 16.29C4.24 14.99 3.8 13.47 3.8 11.91C3.8 7.37 7.5 3.67 12.05 3.67C14.25 3.67 16.31 4.53 17.87 6.09C19.42 7.65 20.28 9.72 20.28 11.92C20.28 16.46 16.58 20.15 12.05 20.15M16.57 14.36C16.32 14.24 15.11 13.64 14.88 13.56C14.66 13.47 14.5 13.43 14.33 13.68C14.17 13.92 13.7 14.48 13.55 14.64C13.41 14.81 13.27 14.83 13.02 14.71C12.77 14.58 11.98 14.32 11.04 13.49C10.31 12.84 9.81 12.03 9.67 11.79C9.53 11.54 9.65 11.41 9.78 11.28C9.89 11.17 10.02 11 10.15 10.85C10.27 10.7 10.31 10.59 10.4 10.43C10.48 10.26 10.44 10.12 10.38 10C10.32 9.88 9.83 8.67 9.63 8.17C9.43 7.69 9.23 7.75 9.08 7.74C8.94 7.74 8.78 7.74 8.61 7.74C8.45 7.74 8.18 7.8 7.95 8.05C7.73 8.3 7.09 8.89 7.09 10.1C7.09 11.31 7.97 12.47 8.1 12.63C8.22 12.8 9.84 15.29 12.31 16.35C12.9 16.61 13.35 16.76 13.71 16.87C14.3 17.06 14.84 17.03 15.26 16.97C15.73 16.9 16.71 16.38 16.91 15.8C17.12 15.23 17.12 14.74 17.06 14.64C17 14.53 16.82 14.48 16.57 14.36Z"/>
+          </svg>
+          <span>Commander via WhatsApp</span>
+        </button>
+        <p class="checkout-note-secure">🔒 Envoi sécurisé direct sans intermédiaire • Paiement au ramassage ou livraison</p>
+      </div>
+    </aside>
+
+    <!-- FLOATING BOTTOM QUICK CART BUTTON -->
+    <button class="floating-cart-bubble" id="floatingCartBtn" style="display: none;" aria-label="Voir le panier">
+      <span>🛒 Panier</span>
+      <span class="cart-count-badge" id="floatingBadge">0</span>
+      <span id="floatingCartTotal" style="font-family: var(--font-mono); font-weight: 800;">$0.00</span>
+    </button>
+
+    <!-- MOBILE SLIDE-OUT DRAWER NAVIGATION -->
+    <div class="mobile-nav-drawer" id="mobileNavDrawer">
+      <div class="mobile-nav-header">
+        <div style="font-family: var(--font-display); font-weight:800; font-size:1.1rem; color:#FFFFFF;">
+          🏪 Dépanneur Eilika
+        </div>
+        <button id="closeMobileNavBtn" style="background:transparent; border:none; color:#FFFFFF; font-size:1.2rem; cursor:pointer;">✕</button>
+      </div>
+      <div class="mobile-nav-links-list">
+        <a href="#featuredSection" class="mobile-nav-item" onclick="document.getElementById('mobileNavDrawer').classList.remove('active'); document.getElementById('drawerBackdrop').classList.remove('active');">⚡ Aubaines Vedettes</a>
+        <a href="#impulseSection" class="mobile-nav-item" onclick="document.getElementById('mobileNavDrawer').classList.remove('active'); document.getElementById('drawerBackdrop').classList.remove('active');">🔥 Essentiels Express</a>
+        <a href="#catalogSection" class="mobile-nav-item" onclick="document.getElementById('mobileNavDrawer').classList.remove('active'); document.getElementById('drawerBackdrop').classList.remove('active');">🛍️ Tous les Rayons</a>
+        <a href="https://wa.me/15145550199" target="_blank" class="mobile-nav-item" style="color:#25D366;">💬 WhatsApp Direct</a>
+        <a href="./admin.html" class="mobile-nav-item" style="color:#FBBF24;">⚙️ Espace Admin / Gestion</a>
+      </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="store-footer" id="storeFooter">
+      <div class="container">
+        <div class="footer-grid">
+          <div class="footer-col">
+            <h4 class="store-name-text">Dépanneur Eilika</h4>
+            <p class="store-tagline-text">Votre arrêt incontournable sur le Plateau-Mont-Royal pour boissons fraîches, collations, essentiels du quotidien et dépannage rapide.</p>
+          </div>
+          <div class="footer-col">
+            <h4>Heures & Emplacement</h4>
+            <p>📍 4218 Rue Saint-Denis, Montréal, QC</p>
+            <p>🕒 Ouvert 7 jours sur 7: 08h00 à 23h00</p>
+            <p>🚲 Livraison de proximité Plateau / Mile-End</p>
+          </div>
+          <div class="footer-col">
+            <h4>Paiements & Commandes</h4>
+            <p>💵 Comptant / Cash</p>
+            <p>💳 Interac, Visa, Mastercard, Apple Pay</p>
+            <p>📱 WhatsApp Checkout Express</p>
+          </div>
+        </div>
+
+        <div class="footer-bottom-bar">
+          <div>© <span id="currentYear">2026</span> Dépanneur Eilika. Tous droits réservés.</div>
+          <div>
+            <a href="./admin.html" class="admin-access-link" id="footerAdminLink">
+              <span>🔐</span>
+              <span>Tableau de bord Admin</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Storefront Logic -->
+    <script src="./storefront.js"></script>
+    <script>
+      document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+  </body>
+</html>

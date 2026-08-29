@@ -1,0 +1,6 @@
+{
+  "name": "Dépanneur Eilika",
+  "description": "Authentic Montreal dépanneur e-commerce storefront and admin dashboard with direct WhatsApp checkout and GitHub auto-connect publishing.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

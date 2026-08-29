@@ -1,0 +1,456 @@
+<!doctype html>
+<html lang="fr-CA">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Administration — Dépanneur Eilika</title>
+    <meta name="description" content="Tableau de bord administrateur pour la gestion des produits, informations de la boutique et synchronisation GitHub." />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body class="admin-body">
+    <!-- AUTHENTICATION LOGIN OVERLAY -->
+    <div id="loginOverlay" class="modal-backdrop active" style="z-index: 9999;">
+      <div class="modal-card" style="max-width: 400px; text-align: center;">
+        <div class="modal-header">
+          <h2 style="font-size: 1.15rem;">🔐 Accès Administrateur</h2>
+        </div>
+        <form id="loginForm" class="modal-body" style="padding: 1.5rem;">
+          <div style="font-size: 2.5rem; margin-bottom: 0.5rem;">🏪</div>
+          <h3 style="font-family: var(--font-display); font-size: 1.25rem; color: var(--charcoal);">Dépanneur Eilika</h3>
+          <p style="font-size: 0.85rem; color: var(--charcoal-muted); margin-bottom: 1rem;">Entrez votre mot de passe gestionnaire pour accéder au tableau de bord.</p>
+          
+          <div style="text-align: left; margin-bottom: 1rem;">
+            <label class="form-field-label" for="loginPassword">Mot de passe / Password</label>
+            <input type="password" class="form-control" id="loginPassword" placeholder="Par défaut: admin" required />
+            <div id="loginErrorMsg" style="color: #EF4444; font-size: 0.75rem; font-weight: 700; margin-top: 0.35rem; display: none;"></div>
+          </div>
+
+          <button type="submit" class="btn-publish-live" style="width: 100%; justify-content: center; background: var(--brick-red); color: #FFF;">
+            <span>Déverrouiller l'accès</span>
+          </button>
+          <p style="font-size: 0.72rem; color: #94A3B8; margin-top: 0.75rem;">(Mot de passe par défaut: <code>admin</code> ou <code>admin123</code>)</p>
+        </form>
+      </div>
+    </div>
+
+    <!-- 1. GLOBAL FIXED TOP SAVE & PUBLISH ACTION BAR -->
+    <header class="admin-publish-bar" id="adminPublishBar">
+      <div class="publish-bar-container">
+        <div class="admin-brand-wrap">
+          <a href="./index.html" style="font-size: 1.3rem;">🏪</a>
+          <h1 id="adminPanelHeading">Dépanneur Eilika</h1>
+          <span class="admin-badge-pill" id="adminBadgePill">Admin Workspace</span>
+        </div>
+
+        <div class="sync-status-indicator" id="syncStatusIndicator">
+          <span class="sync-dot"></span>
+          <span>Mode Local (Prêt à synchroniser)</span>
+        </div>
+
+        <div class="publish-bar-actions">
+          <a href="./index.html" class="btn-admin-view-store" id="btnViewStoreFront" target="_blank">
+            <span>👁️ Voir la boutique</span>
+          </a>
+          <button class="btn-publish-live" id="btnPublishLive">
+            <span>💾 Enregistrer & Publier / Save & Publish</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <!-- GREEN FLOATING NOTIFICATION BANNER (3 SECONDS) -->
+    <div class="floating-save-banner" id="floatingSaveBanner" role="alert" aria-live="assertive">
+      <span style="font-size: 1.2rem;">✨</span>
+      <span id="saveBannerText">✓ Saved Successfully! / डेटा सेव हो गया!</span>
+    </div>
+
+    <!-- 2. ADMIN TABS NAVIGATION BAR -->
+    <nav class="admin-tabs-bar" id="adminTabsBar">
+      <div class="admin-tabs-container" id="adminTabsContainer">
+        <button class="admin-tab-btn active" data-tab="products" id="tabBtnProducts">
+          <span>📦 Produits & Stock</span>
+        </button>
+        <button class="admin-tab-btn" data-tab="store" id="tabBtnStore">
+          <span>🏪 Info Boutique & Heures</span>
+        </button>
+        <button class="admin-tab-btn" data-tab="github" id="tabBtnGithub">
+          <span>⚡ GitHub Auto-Connect</span>
+        </button>
+        <button class="admin-tab-btn" data-tab="account" id="tabBtnAccount">
+          <span>⚙️ Compte & Sauvegardes</span>
+        </button>
+      </div>
+    </nav>
+
+    <!-- 3. TABBED WORKSPACE CONTENT -->
+    <main class="admin-main" id="adminMainContent">
+      <!-- TAB 1: PRODUCTS MANAGEMENT -->
+      <div class="admin-tab-pane active" id="tab-products">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <div>
+              <h2 class="admin-card-title">
+                <span>📦</span>
+                <span>Gestion du Catalogue des Produits</span>
+              </h2>
+              <p style="font-size: 0.85rem; color: var(--charcoal-muted); margin-top: 0.2rem;">
+                Ajoutez, modifiez ou retirez des articles, gérez les rabais et les sélections vedettes.
+              </p>
+            </div>
+            <button class="btn-publish-live" id="btnAddProduct" style="background: var(--brick-red); color:#FFF;">
+              <span>➕ Ajouter un produit</span>
+            </button>
+          </div>
+
+          <!-- Product Filters -->
+          <div style="display: flex; gap: 1rem; margin-bottom: 1.25rem; flex-wrap: wrap;">
+            <div style="flex-grow: 1; max-width: 320px;">
+              <input type="text" class="form-control" id="prodSearchInput" placeholder="Rechercher par nom, catégorie..." />
+            </div>
+            <div>
+              <select class="form-control" id="prodCategoryFilter">
+                <option value="all">Toutes les catégories</option>
+                <option value="drinks">Drinks / Boissons</option>
+                <option value="snacks">Snacks & Chips</option>
+                <option value="smoking">Lighters & Smoking</option>
+                <option value="health">Health & Essentials</option>
+                <option value="general">General Store</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Products Table -->
+          <div class="products-table-wrap">
+            <table class="admin-table" id="adminProductsTable">
+              <thead>
+                <tr>
+                  <th style="width: 60px;">Image</th>
+                  <th>Nom du Produit</th>
+                  <th>Catégorie</th>
+                  <th>Prix (CAD)</th>
+                  <th>Badges & Tags</th>
+                  <th>État Stock</th>
+                  <th style="width: 140px;">Actions</th>
+                </tr>
+              </thead>
+              <tbody id="productsTableBody">
+                <!-- Dynamically Populated -->
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 2: STORE INFO & MARQUEE ANNOUNCEMENTS -->
+      <div class="admin-tab-pane" id="tab-store">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h2 class="admin-card-title">
+              <span>🏪</span>
+              <span>Coordonnées & Horaires du Dépanneur</span>
+            </h2>
+          </div>
+
+          <form id="storeInfoForm" style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div>
+                <label class="form-field-label" for="storeName">Nom de l'établissement</label>
+                <input type="text" class="form-control" id="storeName" required />
+              </div>
+              <div>
+                <label class="form-field-label" for="storeTagline">Slogan / Sous-titre</label>
+                <input type="text" class="form-control" id="storeTagline" />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 1rem;">
+              <div>
+                <label class="form-field-label" for="storeAddress">Adresse physique (Montréal)</label>
+                <input type="text" class="form-control" id="storeAddress" required />
+              </div>
+              <div>
+                <label class="form-field-label" for="storeMapsUrl">Lien Google Maps</label>
+                <input type="url" class="form-control" id="storeMapsUrl" />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div>
+                <label class="form-field-label" for="storePhone">Téléphone du magasin</label>
+                <input type="text" class="form-control" id="storePhone" />
+              </div>
+              <div>
+                <label class="form-field-label" for="storeWhatsAppNumber">Numéro WhatsApp (sans espaces ni +, ex: 15145550199)</label>
+                <input type="text" class="form-control" id="storeWhatsAppNumber" required />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 1rem;">
+              <div>
+                <label class="form-field-label" for="storeOpeningHour">Heure d'ouverture (0-23)</label>
+                <input type="number" min="0" max="23" class="form-control" id="storeOpeningHour" value="8" />
+              </div>
+              <div>
+                <label class="form-field-label" for="storeClosingHour">Heure de fermeture (0-23)</label>
+                <input type="number" min="0" max="23" class="form-control" id="storeClosingHour" value="23" />
+              </div>
+            </div>
+
+            <!-- Announcements Section -->
+            <div style="margin-top: 1rem; border-top: 1px solid #E2E8F0; padding-top: 1.25rem;">
+              <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 0.75rem;">
+                <label class="form-field-label" style="font-size: 0.9rem; font-weight: 700; color: var(--charcoal);">
+                  📢 Bandeau Défilant (Annonces & Promotions du Marquee)
+                </label>
+                <button type="button" class="btn-table-action" id="btnAddAnnouncement" style="background:#F1F5F9;">
+                  + Ajouter une annonce
+                </button>
+              </div>
+              <div id="announcementsList">
+                <!-- Dynamically populated announcement inputs -->
+              </div>
+            </div>
+
+            <div style="margin-top: 1rem; display: flex; justify-content: flex-end;">
+              <button type="submit" class="btn-publish-live">
+                <span>💾 Enregistrer les informations boutique</span>
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!-- TAB 3: SIMPLIFIED GITHUB AUTO-CONNECT -->
+      <div class="admin-tab-pane" id="tab-github">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h2 class="admin-card-title">
+              <span>⚡</span>
+              <span>Connexion Automatique GitHub (Auto-Connect PAT)</span>
+            </h2>
+          </div>
+
+          <p style="font-size: 0.88rem; color: var(--charcoal-muted); line-height: 1.5; margin-bottom: 1rem;">
+            Collez simplement votre <strong>GitHub Personal Access Token (PAT)</strong> ci-dessous. Le système détecte automatiquement votre nom d'utilisateur, le dépôt et la branche cible sans aucune saisie manuelle requise!
+          </p>
+
+          <div class="github-status-pill disconnected" id="githubStatusPill">
+            <span>⚠️ Aucun jeton GitHub connecté</span>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 1rem; margin-top: 1rem;">
+            <div>
+              <label class="form-field-label" for="githubPatInput">Jeton d'accès personnel GitHub (PAT / Token avec portée <code>repo</code>)</label>
+              <div style="display: flex; gap: 0.75rem;">
+                <input 
+                  type="password" 
+                  class="form-control" 
+                  id="githubPatInput" 
+                  placeholder="ghp_xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx" 
+                  style="font-family: var(--font-mono);"
+                />
+                <button type="button" class="btn-publish-live" id="btnTestGithub" style="background: var(--brick-red); color:#FFF; white-space:nowrap;">
+                  <span>🔍 Tester & Connecter</span>
+                </button>
+              </div>
+              <p style="font-size: 0.75rem; color: #64748B; margin-top: 0.35rem;">
+                Besoin d'un jeton? Générez-le sur GitHub dans <em>Settings &gt; Developer Settings &gt; Personal Access Tokens (Classic)</em> avec la permission <code>repo</code>.
+              </p>
+            </div>
+
+            <!-- Auto-detected details card -->
+            <div id="githubRepoDetails" class="github-connect-box" style="display: none;">
+              <h4 style="font-size: 0.9rem; font-weight: 700; color: #0F172A; margin-bottom: 0.5rem;">
+                📋 Détails de la synchronisation détectée
+              </h4>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; font-size: 0.84rem;">
+                <div>
+                  <span style="color: #64748B;">Dépôt Cible:</span>
+                  <strong id="githubRepoNameDisplay" style="font-family: var(--font-mono); margin-left: 0.4rem;">-</strong>
+                </div>
+                <div>
+                  <span style="color: #64748B;">Branche:</span>
+                  <strong id="githubBranchDisplay" style="font-family: var(--font-mono); margin-left: 0.4rem;">main</strong>
+                </div>
+                <div>
+                  <span style="color: #64748B;">Fichier de données:</span>
+                  <strong style="font-family: var(--font-mono); margin-left: 0.4rem;">data.json</strong>
+                </div>
+                <div>
+                  <span style="color: #64748B;">Dernière sync:</span>
+                  <strong id="githubLastSyncDisplay" style="margin-left: 0.4rem;">-</strong>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TAB 4: ACCOUNT & DATA BACKUP -->
+      <div class="admin-tab-pane" id="tab-account">
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h2 class="admin-card-title">
+              <span>🔐</span>
+              <span>Sécurité du Compte Administrateur</span>
+            </h2>
+          </div>
+
+          <form id="accountForm" style="max-width: 450px; display: flex; flex-direction: column; gap: 1rem;">
+            <div>
+              <label class="form-field-label" for="newAdminPassword">Nouveau mot de passe de gestion</label>
+              <input type="password" class="form-control" id="newAdminPassword" placeholder="Entrez un nouveau mot de passe" required />
+            </div>
+            <button type="submit" class="btn-publish-live" style="width: fit-content; background: var(--brick-red); color:#FFF;">
+              <span>Mettre à jour le mot de passe</span>
+            </button>
+          </form>
+        </div>
+
+        <div class="admin-card">
+          <div class="admin-card-header">
+            <h2 class="admin-card-title">
+              <span>💾</span>
+              <span>Sauvegardes & Outils JSON</span>
+            </h2>
+          </div>
+
+          <div style="display: flex; flex-direction: column; gap: 1.25rem;">
+            <div>
+              <h4 style="font-size: 0.9rem; font-weight: 700;">Télécharger la sauvegarde data.json</h4>
+              <p style="font-size: 0.82rem; color: var(--charcoal-muted); margin-bottom: 0.5rem;">
+                Téléchargez une copie locale de vos produits et configurations actuelles.
+              </p>
+              <button type="button" class="btn-table-action" id="btnExportJson" style="font-weight:700; padding:0.5rem 1rem;">
+                📥 Télécharger data.json
+              </button>
+            </div>
+
+            <div style="border-top: 1px solid #F1F5F9; padding-top: 1rem;">
+              <h4 style="font-size: 0.9rem; font-weight: 700;">Importer un fichier data.json</h4>
+              <p style="font-size: 0.82rem; color: var(--charcoal-muted); margin-bottom: 0.5rem;">
+                Restaurez ou mettez à jour votre inventaire en important un fichier JSON valide.
+              </p>
+              <input type="file" id="jsonFileInput" accept=".json" class="form-control" style="max-width: 320px;" />
+            </div>
+
+            <div style="border-top: 1px solid #F1F5F9; padding-top: 1rem;">
+              <h4 style="font-size: 0.9rem; font-weight: 700; color: #DC2626;">Réinitialiser les données</h4>
+              <p style="font-size: 0.82rem; color: var(--charcoal-muted); margin-bottom: 0.5rem;">
+                Restaure le catalogue et les configurations d'origine du Dépanneur Eilika.
+              </p>
+              <button type="button" class="btn-table-action delete" id="btnResetData">
+                ⚠️ Restaurer les données par défaut
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- PRODUCT ADD / EDIT MODAL -->
+    <div class="modal-backdrop" id="productModal">
+      <div class="modal-card">
+        <div class="modal-header">
+          <h3 id="modalTitle" style="font-size: 1.15rem; font-weight: 800;">Ajouter un produit</h3>
+          <button class="drawer-close-btn" id="closeModalBtn" type="button">✕</button>
+        </div>
+
+        <form id="productForm">
+          <div class="modal-body">
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+              <div>
+                <label class="form-field-label" for="prodName">Nom (Anglais/Général) *</label>
+                <input type="text" class="form-control" id="prodName" required placeholder="Ex: Arizona Green Tea" />
+              </div>
+              <div>
+                <label class="form-field-label" for="prodNameFr">Nom en français</label>
+                <input type="text" class="form-control" id="prodNameFr" placeholder="Ex: Thé vert Arizona" />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+              <div>
+                <label class="form-field-label" for="prodCategory">Catégorie</label>
+                <select class="form-control" id="prodCategory" required>
+                  <option value="drinks">Drinks / Boissons</option>
+                  <option value="snacks">Snacks & Chips</option>
+                  <option value="smoking">Lighters & Smoking</option>
+                  <option value="health">Health & Essentials</option>
+                  <option value="general">General Store</option>
+                </select>
+              </div>
+              <div>
+                <label class="form-field-label" for="prodPrice">Prix de vente ($ CAD) *</label>
+                <input type="number" step="0.01" class="form-control" id="prodPrice" required placeholder="1.99" />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 0.75rem;">
+              <div>
+                <label class="form-field-label" for="prodOriginalPrice">Prix régulier ($)</label>
+                <input type="number" step="0.01" class="form-control" id="prodOriginalPrice" placeholder="2.49" />
+              </div>
+              <div>
+                <label class="form-field-label" for="prodDiscount">Rabais (ex: -15%)</label>
+                <input type="text" class="form-control" id="prodDiscount" placeholder="-15%" />
+              </div>
+              <div>
+                <label class="form-field-label" for="prodBadge">Badge (ex: Top Deal)</label>
+                <input type="text" class="form-control" id="prodBadge" placeholder="Best Seller" />
+              </div>
+            </div>
+
+            <div>
+              <label class="form-field-label" for="prodImage">URL de l'image</label>
+              <div style="display: flex; gap: 0.75rem; align-items: center;">
+                <input type="url" class="form-control" id="prodImage" placeholder="https://images.unsplash.com/..." />
+                <img id="prodImagePreview" src="https://images.unsplash.com/photo-1542838132-92c53300491e?w=600&auto=format&fit=crop&q=80" alt="Preview" style="width: 42px; height: 42px; object-fit: cover; border-radius: 4px; border: 1px solid #CBD5E1; flex-shrink: 0;" />
+              </div>
+            </div>
+
+            <div>
+              <label class="form-field-label" for="prodDescription">Description ou format (ml/g)</label>
+              <textarea class="form-control" id="prodDescription" rows="2" placeholder="Ex: Format géant 680 ml canette fraîche"></textarea>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem;">
+              <div>
+                <label class="form-field-label" for="prodStockCount">Quantité en stock</label>
+                <input type="number" class="form-control" id="prodStockCount" value="25" />
+              </div>
+              <div style="display: flex; flex-direction: column; justify-content: center; gap: 0.4rem; padding-top: 0.75rem;">
+                <label style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.84rem; font-weight: 600;">
+                  <input type="checkbox" id="prodInStock" checked />
+                  <span>En stock (Disponible)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Flags -->
+            <div style="display: flex; gap: 1.5rem; padding: 0.6rem 0.8rem; background: #F8FAFC; border-radius: 6px; border: 1px solid #E2E8F0;">
+              <label style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.84rem; font-weight: 600;">
+                <input type="checkbox" id="prodIsFeatured" />
+                <span>⚡ Mettre en Vedette (Top Deals)</span>
+              </label>
+              <label style="display: flex; align-items: center; gap: 0.4rem; font-size: 0.84rem; font-weight: 600;">
+                <input type="checkbox" id="prodIsImpulse" />
+                <span>🔥 Achat Express (Mini Carousel)</span>
+              </label>
+            </div>
+          </div>
+
+          <div class="modal-footer">
+            <button type="button" class="btn-table-action" id="cancelProductBtn">Annuler</button>
+            <button type="submit" class="btn-publish-live" style="background: var(--brick-red); color:#FFF;">
+              <span>Enregistrer le produit</span>
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <!-- Admin Engine Script -->
+    <script src="./admin.js"></script>
+  </body>
+</html>
